@@ -21,6 +21,6 @@ public class StringChuckModel extends ChuckModel{
                 "stringOffsets: " + intArray2String(stringOffsets) + "\n" +
                 "styleOffsets: " + intArray2String(styleOffsets) + "\n" +
                 "stringContentStartPoint: " + stringContentStartPoint + "\n" +
-                "stringContent: \n" + StringArray2String(stringContent);
+                "stringContent: \n" + stringArray2String(stringContent);
     }
 }

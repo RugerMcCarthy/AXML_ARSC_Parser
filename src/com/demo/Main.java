@@ -7,8 +7,7 @@ public class Main {
 
     private void run() {
         ManifestParser parser = new ManifestParser("src/com/demo/apk/AndroidManifest.xml");
-        parser.parseManifestHeader();
-        parser.parseStringChuck();
+        parser.parseTo("src/com/demo/apk/hacker/AndroidManifest.xml");
     }
 
     public static void main(String[] args) {

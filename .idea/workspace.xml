@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac38c4ac-576a-4617-956a-430c750da93f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/ResourceChuckModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/demo/model/ResourceChuckModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/demo/apk/AndroidManifest3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/demo/model/AttributeData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/demo/model/AttributeType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parseApk/com/demo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseApk/com/demo/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/parseApk/com/demo/Utils/ManifestParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseApk/com/demo/Utils/ManifestParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/ManifestModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/ManifestModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parseApk/com/demo/Utils/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseApk/com/demo/Utils/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/ChuckModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/ChuckModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/ResourceChuckModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/ResourceChuckModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/StringChuckModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseApk/com/demo/model/StringChuckModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/demo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/demo/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/demo/Utils/ManifestParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/demo/Utils/ManifestParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/demo/model/ManifestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/demo/model/ManifestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/demo/Utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/demo/Utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/demo/model/ChuckModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/demo/model/ChuckModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/demo/model/ResourceChuckModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/demo/model/ResourceChuckModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/demo/model/StringChuckModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/demo/model/StringChuckModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +45,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/demo/document" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/demo/apk" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -45,11 +53,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.demo.model" />
       <recent name="com.demo.Utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/com/demo/document" />
       <recent name="$PROJECT_DIR$/src/com/demo/apk" />
+      <recent name="$PROJECT_DIR$/src/com/demo/document" />
     </key>
   </component>
   <component name="RunManager">
@@ -79,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587816761999</updated>
-      <workItem from="1587816765894" duration="14710000" />
+      <workItem from="1587816765894" duration="34011000" />
     </task>
     <servers />
   </component>
@@ -99,45 +108,65 @@
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
     <state x="454" y="114" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.23.1792.1005@0.23.1792.1005" timestamp="1587823149288" />
-    <state width="1750" height="254" key="GridCell.Tab.0.bottom" timestamp="1587872844758">
+    <state x="608" y="69" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1587886691264">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state width="1750" height="254" key="GridCell.Tab.0.bottom/0.23.1792.1005@0.23.1792.1005" timestamp="1587872844758" />
-    <state width="1750" height="254" key="GridCell.Tab.0.center" timestamp="1587872844758">
+    <state x="608" y="69" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.23.1792.1005@0.23.1792.1005" timestamp="1587886691264" />
+    <state width="514" height="646" key="DebuggerActiveHint" timestamp="1587903907163">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state width="1750" height="254" key="GridCell.Tab.0.center/0.23.1792.1005@0.23.1792.1005" timestamp="1587872844758" />
-    <state width="1750" height="254" key="GridCell.Tab.0.left" timestamp="1587872844757">
+    <state width="514" height="646" key="DebuggerActiveHint/0.23.1792.1005@0.23.1792.1005" timestamp="1587903907163" />
+    <state width="1750" height="23" key="GridCell.Tab.0.bottom" timestamp="1587909685136">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state width="1750" height="254" key="GridCell.Tab.0.left/0.23.1792.1005@0.23.1792.1005" timestamp="1587872844757" />
-    <state width="1750" height="254" key="GridCell.Tab.0.right" timestamp="1587872844758">
+    <state width="1750" height="23" key="GridCell.Tab.0.bottom/0.23.1792.1005@0.23.1792.1005" timestamp="1587909685136" />
+    <state width="1750" height="23" key="GridCell.Tab.0.center" timestamp="1587909685135">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state width="1750" height="254" key="GridCell.Tab.0.right/0.23.1792.1005@0.23.1792.1005" timestamp="1587872844758" />
-    <state width="1750" height="317" key="GridCell.Tab.1.bottom" timestamp="1587823207285">
+    <state width="1750" height="23" key="GridCell.Tab.0.center/0.23.1792.1005@0.23.1792.1005" timestamp="1587909685135" />
+    <state width="1750" height="23" key="GridCell.Tab.0.left" timestamp="1587909685134">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state width="1750" height="317" key="GridCell.Tab.1.bottom/0.23.1792.1005@0.23.1792.1005" timestamp="1587823207285" />
-    <state width="1750" height="317" key="GridCell.Tab.1.center" timestamp="1587823207284">
+    <state width="1750" height="23" key="GridCell.Tab.0.left/0.23.1792.1005@0.23.1792.1005" timestamp="1587909685134" />
+    <state width="1750" height="23" key="GridCell.Tab.0.right" timestamp="1587909685135">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state width="1750" height="317" key="GridCell.Tab.1.center/0.23.1792.1005@0.23.1792.1005" timestamp="1587823207284" />
-    <state width="1750" height="317" key="GridCell.Tab.1.left" timestamp="1587823207284">
+    <state width="1750" height="23" key="GridCell.Tab.0.right/0.23.1792.1005@0.23.1792.1005" timestamp="1587909685135" />
+    <state width="1750" height="317" key="GridCell.Tab.1.bottom" timestamp="1587907849273">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state width="1750" height="317" key="GridCell.Tab.1.left/0.23.1792.1005@0.23.1792.1005" timestamp="1587823207284" />
-    <state width="1750" height="317" key="GridCell.Tab.1.right" timestamp="1587823207285">
+    <state width="1750" height="317" key="GridCell.Tab.1.bottom/0.23.1792.1005@0.23.1792.1005" timestamp="1587907849273" />
+    <state width="1750" height="317" key="GridCell.Tab.1.center" timestamp="1587907849272">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state width="1750" height="317" key="GridCell.Tab.1.right/0.23.1792.1005@0.23.1792.1005" timestamp="1587823207285" />
+    <state width="1750" height="317" key="GridCell.Tab.1.center/0.23.1792.1005@0.23.1792.1005" timestamp="1587907849272" />
+    <state width="1750" height="317" key="GridCell.Tab.1.left" timestamp="1587907849272">
+      <screen x="0" y="23" width="1792" height="1005" />
+    </state>
+    <state width="1750" height="317" key="GridCell.Tab.1.left/0.23.1792.1005@0.23.1792.1005" timestamp="1587907849272" />
+    <state width="1750" height="317" key="GridCell.Tab.1.right" timestamp="1587907849273">
+      <screen x="0" y="23" width="1792" height="1005" />
+    </state>
+    <state width="1750" height="317" key="GridCell.Tab.1.right/0.23.1792.1005@0.23.1792.1005" timestamp="1587907849273" />
     <state x="770" y="171" key="SettingsEditor" timestamp="1587823170705">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
     <state x="770" y="171" key="SettingsEditor/0.23.1792.1005@0.23.1792.1005" timestamp="1587823170705" />
-    <state x="561" y="245" width="670" height="676" key="search.everywhere.popup" timestamp="1587829274246">
+    <state x="544" y="266" width="703" height="518" key="find.popup" timestamp="1587902278126">
       <screen x="0" y="23" width="1792" height="1005" />
     </state>
-    <state x="561" y="245" width="670" height="676" key="search.everywhere.popup/0.23.1792.1005@0.23.1792.1005" timestamp="1587829274246" />
+    <state x="544" y="266" width="703" height="518" key="find.popup/0.23.1792.1005@0.23.1792.1005" timestamp="1587902278126" />
+    <state x="273" y="107" key="new project wizard" timestamp="1587875730302">
+      <screen x="0" y="23" width="1792" height="1005" />
+    </state>
+    <state x="273" y="107" key="new project wizard/0.23.1792.1005@0.23.1792.1005" timestamp="1587875730302" />
+    <state x="561" y="243" key="run.anything.popup" timestamp="1587907669487">
+      <screen x="0" y="23" width="1792" height="1005" />
+    </state>
+    <state x="561" y="243" key="run.anything.popup/0.23.1792.1005@0.23.1792.1005" timestamp="1587907669487" />
+    <state x="561" y="245" width="670" height="676" key="search.everywhere.popup" timestamp="1587907991417">
+      <screen x="0" y="23" width="1792" height="1005" />
+    </state>
+    <state x="561" y="245" width="670" height="676" key="search.everywhere.popup/0.23.1792.1005@0.23.1792.1005" timestamp="1587907991417" />
   </component>
 </project>

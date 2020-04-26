@@ -1,9 +1,7 @@
 package com.demo.Utils;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
+import java.util.ArrayList;
 
 public final class Utils {
 
@@ -29,14 +27,14 @@ public final class Utils {
      */
     public static String bytes2HexString(byte[] bytes){
         StringBuilder result = new StringBuilder();
+        result.append("0x");
         for(int i=bytes.length-1;i>=0;i--){
-            String hex = Integer.toHexString(bytes[i]);
+            String hex = Integer.toHexString(bytes[i] & 0xff);
             if(hex.length() < 2){
                 result.append("0"+hex);
             }else{
                 result.append(hex);
             }
-            result.append(" ");
         }
         return result.toString();
 
@@ -64,6 +62,28 @@ public final class Utils {
         return false;
     }
 
+    public static boolean writeFile(String fileName, byte[] content) {
+        File file = new File(fileName);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(content, 0, content.length);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
     public static byte[] readFile(String fileName){
         File file = new File(fileName);
         FileInputStream fis = null;
@@ -229,6 +249,20 @@ public final class Utils {
             i++;
         }
         return bytes;
+    }
+
+    public static String filterStringNull(byte[] bytes) {
+        ArrayList<Byte> filterBytes = new ArrayList<>();
+        for (int i = 0; i < bytes.length; ++i) {
+            if (bytes[i] != 0) {
+                filterBytes.add(bytes[i]);
+            }
+        }
+        byte[] target = new byte[filterBytes.size()];
+        for (int i = 0; i < filterBytes.size(); ++i) {
+            target[i] = filterBytes.get(i);
+        }
+        return new String(target);
     }
 
 }
