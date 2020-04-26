@@ -5,7 +5,8 @@ import com.demo.model.ManifestModel;
 public class ManifestParser {
     private ManifestModel manifestModel;
     private byte[] fileBytes;
-    private int fileHeaderOffset;
+    private int stringChuckOffset;
+    private int resourceChuckOffset;
     public ManifestParser(String filePath) {
         fileBytes = Utils.readFile(filePath);
         if (fileBytes == null) {
@@ -21,7 +22,7 @@ public class ManifestParser {
         }
         manifestModel.magicNumber = Utils.copyBytes(fileBytes, 0, 4);
         manifestModel.fileSize = Utils.byte2Int(Utils.copyBytes(fileBytes, 4, 8));
-        fileHeaderOffset = 8;
+        stringChuckOffset = 8;
     }
 
     public void parseStringChuck() {
@@ -29,15 +30,15 @@ public class ManifestParser {
             System.out.println("打开文件失败");
             return;
         }
-        byte[] chuckType = Utils.copyBytes(fileBytes, fileHeaderOffset, 4);
-        int chuckSize = Utils.byte2Int(Utils.copyBytes(fileBytes, fileHeaderOffset + 4, 4));
-        int stringCount = Utils.byte2Int(Utils.copyBytes(fileBytes, fileHeaderOffset + 8, 4));
+        byte[] chuckType = Utils.copyBytes(fileBytes, stringChuckOffset, 4);
+        int chuckSize = Utils.byte2Int(Utils.copyBytes(fileBytes, stringChuckOffset + 4, 4));
+        int stringCount = Utils.byte2Int(Utils.copyBytes(fileBytes, stringChuckOffset + 8, 4));
         // 样式个数，正常应该为零
-        int styleCount = Utils.byte2Int(Utils.copyBytes(fileBytes, fileHeaderOffset + 12, 4));
+        int styleCount = Utils.byte2Int(Utils.copyBytes(fileBytes, stringChuckOffset + 12, 4));
         // 跳过4字节unkown区域
-        int stringPoolOffset = Utils.byte2Int(Utils.copyBytes(fileBytes, fileHeaderOffset + 20, 4));
-        int stylePoolOffset = Utils.byte2Int(Utils.copyBytes(fileBytes, fileHeaderOffset + 24, 4));
-        int OffsetsCursor = fileHeaderOffset + 28;
+        int stringPoolOffset = Utils.byte2Int(Utils.copyBytes(fileBytes, stringChuckOffset + 20, 4));
+        int stylePoolOffset = Utils.byte2Int(Utils.copyBytes(fileBytes, stringChuckOffset + 24, 4));
+        int OffsetsCursor = stringChuckOffset + 28;
         int[] stringOffsets = new int[stringCount];
         for (int i = 0; i < stringCount; ++i) {
             stringOffsets[i] = Utils.byte2Int(Utils.copyBytes(fileBytes, OffsetsCursor, 4));
@@ -48,9 +49,9 @@ public class ManifestParser {
             styleOffsets[i] = Utils.byte2Int(Utils.copyBytes(fileBytes, OffsetsCursor, 4));
             OffsetsCursor += 4;
         }
-        int stringContentStartPoint = stringPoolOffset + fileHeaderOffset;
+        int stringContentStartPoint = stringPoolOffset + stringChuckOffset;
         String[] stringContent = new String[stringCount];
-        byte[] stringContentBytes = Utils.copyBytes(fileBytes, stringContentStartPoint, chuckSize);
+        byte[] stringContentBytes = Utils.copyBytes(fileBytes, stringContentStartPoint, chuckSize - stringPoolOffset);
         int stringStartPoint = 0;
         for (int i = 0; i < stringCount; ++i) {
             // 字符串中前两位bit记录所包含的字符数量
@@ -72,7 +73,6 @@ public class ManifestParser {
         manifestModel.stringChuckModel.styleOffsets = styleOffsets;
         manifestModel.stringChuckModel.stringContentStartPoint = stringContentStartPoint;
         manifestModel.stringChuckModel.stringContent = stringContent;
-
-        System.out.println(manifestModel.stringChuckModel.toString());
+        resourceChuckOffset = stringChuckOffset + chuckSize;
     }
 }
