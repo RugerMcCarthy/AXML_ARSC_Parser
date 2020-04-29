@@ -6,8 +6,8 @@ import com.demo.Utils.Utils;
 public class Main {
 
     private void run() {
-        ManifestParser parser = new ManifestParser("src/com/demo/apk/AndroidManifest.xml");
-        parser.parseTo("src/com/demo/apk/hacker/AndroidManifest.xml");
+        ManifestParser parser = new ManifestParser("src/com/demo/apk/xml/activity_banner_demo.xml");
+        parser.parseTo("src/com/demo/apk/result/AndroidManifest.xml");
     }
 
     public static void main(String[] args) {

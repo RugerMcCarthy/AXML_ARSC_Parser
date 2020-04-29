@@ -16,6 +16,8 @@ public class ManifestParser {
     private int stringChuckOffset;
     private int resourceChuckOffset;
     private int xmlContentChuckOffset;
+    private boolean isFirstString = true;
+    private boolean isUTF8 = false;
     private HashMap<String, String> prefixUriMap = new HashMap<>();
     private HashMap<String, String> uriPrefixMap = new HashMap<>();
     private StringBuilder xmlContent = new StringBuilder();
@@ -73,15 +75,28 @@ public class ManifestParser {
         for (int i = 0; i < stringCount; ++i) {
             // 字符串中前两位bit记录所包含的字符数量
             byte[] stringLengthBytes = Utils.copyBytes(stringContentBytes, stringStartPoint, 2);
-            if ((stringLengthBytes[1] & 0x7f) != 0) {
+            if (isFirstString) {
+                // utf-8字符串前两字节  stringLengthBytes[0]：字符串字符数量 stringLengthBytes[1]: 字符串所占字节数量
+                // utf-16字符串前两字节 stringLengthBytes[0]：字符串字符数量（由于UTF-16固定编码，所以所占字节数量为字符数量二倍） stringLengthBytes[1]: 默认为零，猜测应该是与utf-8作区分
+                // 通过第一个字符串来判断是UTF-8还是UTF-16
+                if ((stringLengthBytes[1] & 0xff) != 0) {
+                    isUTF8 = true;
+                }
+                isFirstString = false;
+            }
+            if (isUTF8) {
                 // UTF-8编码
-                int stringSize = Utils.byte2Short(stringLengthBytes);
-                byte[] stringBytes = Utils.copyBytes(stringContentBytes, stringStartPoint + 2, stringCount + 1);
-                try {
-                    stringContent[i] = new String(stringBytes, "utf-8");
-                } catch (Exception e) {
+                int stringSize = (stringLengthBytes[1] & 0xff);
+                if (stringSize != 0) {
+                    byte[] stringBytes = Utils.copyBytes(stringContentBytes, stringStartPoint + 2, stringSize + 1);
+                    try {
+                        stringContent[i] = new String(stringBytes, "utf-8");
+                    } catch (Exception e) {
+                        stringContent[i] = "";
+                        e.printStackTrace();
+                    }
+                } else {
                     stringContent[i] = "";
-                    e.printStackTrace();
                 }
                 stringStartPoint += (2 + stringSize + 1);
             } else {
