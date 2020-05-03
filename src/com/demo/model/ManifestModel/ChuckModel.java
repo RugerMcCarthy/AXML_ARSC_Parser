@@ -1,4 +1,4 @@
-package com.demo.model;
+package com.demo.model.ManifestModel;
 
 public class ChuckModel {
     public static final int START_NAMESPACE_CHUCK = 0x00100100;

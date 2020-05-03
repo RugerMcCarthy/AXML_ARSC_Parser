@@ -1,6 +1,4 @@
-package com.demo.model;
-
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
+package com.demo.model.ManifestModel;
 
 public class StringChuckModel extends ChuckModel{
     public int stringCount;

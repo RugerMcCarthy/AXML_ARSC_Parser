@@ -40,6 +40,22 @@ public final class Utils {
 
     }
 
+    public static String int2HexString(int num){
+        byte[] bytes = Utils.int2Byte(num);
+        StringBuilder result = new StringBuilder();
+        result.append("0x");
+        for(int i=bytes.length-1;i>=0;i--){
+            String hex = Integer.toHexString(bytes[i] & 0xff);
+            if(hex.length() < 2){
+                result.append("0"+hex);
+            }else{
+                result.append(hex);
+            }
+        }
+        return result.toString();
+
+    }
+
     public static boolean saveFile(String fileName, byte[] arys){
         File file = new File(fileName);
         FileOutputStream fos = null;
@@ -265,4 +281,26 @@ public final class Utils {
         return new String(target);
     }
 
+    public static String getPackage(int id) {
+        if (id>>>24==1) {
+            return "android:";
+        }
+        return "";
+    }
+
+    public static float complexToFloat(int complex) {
+        return (float)(complex & 0xFFFFFF00)*RADIX_MULTS[(complex>>4) & 3];
+    }
+
+    public static final float RADIX_MULTS[]={
+            0.00390625F,3.051758E-005F,1.192093E-007F,4.656613E-010F
+    };
+
+    public static final String DIMENSION_UNITS[]={
+            "px","dip","sp","pt","in","mm","",""
+    };
+
+    public static final String FRACTION_UNITS[]={
+            "%","%p","","","","","",""
+    };
 }

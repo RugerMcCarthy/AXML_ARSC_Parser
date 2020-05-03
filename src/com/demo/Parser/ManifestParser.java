@@ -1,11 +1,10 @@
 package com.demo.Utils;
 
-import com.demo.model.AttributeData;
-import com.demo.model.AttributeType;
-import com.demo.model.ChuckModel;
-import com.demo.model.ManifestModel;
+import com.demo.model.ManifestModel.AttributeData;
+import com.demo.model.ManifestModel.AttributeType;
+import com.demo.model.ManifestModel.ChuckModel;
+import com.demo.model.ManifestModel.ManifestModel;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

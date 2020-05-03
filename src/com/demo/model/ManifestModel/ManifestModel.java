@@ -1,4 +1,4 @@
-package com.demo.model;
+package com.demo.model.ManifestModel;
 
 public class ManifestModel {
     public byte[] magicNumber = new byte[4];
