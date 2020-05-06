@@ -1,5 +1,6 @@
-package com.demo.Utils;
+package com.demo.Parser;
 
+import com.demo.Utils.Utils;
 import com.demo.model.ManifestModel.AttributeData;
 import com.demo.model.ManifestModel.AttributeType;
 import com.demo.model.ManifestModel.ChuckModel;
@@ -9,9 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ManifestParser {
+public class ManifestParser extends Parser{
     private ManifestModel manifestModel;
-    private byte[] fileBytes;
     private int stringChuckOffset;
     private int resourceChuckOffset;
     private int xmlContentChuckOffset;
@@ -21,14 +21,13 @@ public class ManifestParser {
     private HashMap<String, String> uriPrefixMap = new HashMap<>();
     private StringBuilder xmlContent = new StringBuilder();
     private int indentCount = 0;
+
     public ManifestParser(String filePath) {
-        fileBytes = Utils.readFile(filePath);
-        if (fileBytes == null) {
-            System.out.println("打开文件失败");
-        }
+        super(filePath);
         manifestModel = new ManifestModel();
     }
 
+    @Override
     public void parseTo(String outPath) {
         if (fileBytes == null) {
             System.out.println("打开文件失败");

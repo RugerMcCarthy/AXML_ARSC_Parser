@@ -10,8 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.StreamSupport;
 
-public class ResourceParser {
-    byte[] fileBytes;
+public class ResourceParser extends Parser{
     ResourceTableChuckHeader resTableChuckHeader;
     StringPoolChuck globalStringPoolChuck;
     PackageChuckHeader packageChuckHeader;
@@ -22,14 +21,11 @@ public class ResourceParser {
     Map<Integer, TypeInfoEntry> resIdEntryMap = new HashMap<>();
     private StringBuilder resContent = new StringBuilder();
 
-
     public ResourceParser(String filePath) {
-        fileBytes = Utils.readFile(filePath);
-        if (fileBytes == null) {
-            System.out.println("打开文件失败");
-        }
+        super(filePath);
     }
 
+    @Override
     public void parseTo(String outPath) {
         if (fileBytes == null) {
             return;
@@ -205,9 +201,9 @@ public class ResourceParser {
             byte[] stringSizeBytes = Utils.copyBytes(fileBytes, stringPoolCursor, 2);
             if (stringPoolChuck.isUTF8) {
                 // 有出现二进制错误的case，长度记录了两遍，暂时跳过重复记录的长度
-                if ((stringSizeBytes[0] & 0XFF) == 128 && (stringSizeBytes[1] & 0XFF) == 233) {
-                    stringPoolCursor += 2;
-                }
+//                if ((stringSizeBytes[0] & 0XFF) == 128 && (stringSizeBytes[1] & 0XFF) == 233) {
+//                    stringPoolCursor += 2;
+//                }
                 stringSize = (stringSizeBytes[1] & 0xFF);
                 if (stringSize != 0) {
                     // 有出现记录长度不正确的case，会影响后面二进制解析，暂时自己计算长度
